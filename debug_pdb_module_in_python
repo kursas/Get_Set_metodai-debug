@@ -1,0 +1,57 @@
+#How to use the Python Debugger using the breakpoint()
+#Learn how to use the Python Debugger using the breakpoint() function in this Tutorial.
+
+#Whenever your code does not work as expected and you want to find out why, you can utilize the Python debugger to detect the bug.
+#It's very simple to get started. You can insert a breakpoint with the breakpoint() function at any position in your code .
+#This is new in Python 3.7, and is equivalent to the older import pdb; pdb.set_trace() command.
+
+import pdb
+pdb.set_trace()
+a = int(0.1)
+b = 3.0
+c = a + b
+breakpoint()
+
+#Now when we run this file with python my_script.py, it will stop at the breakpoint and start the debugger session
+
+#output
+> c:\users\<name user>\appdata\roaming\jetbrains\pycharmce2022.2\scratches\visi scratches\scratch_14.py(3)<module>()
+-> a = int(0.1)
+(Pdb) l
+  1  	import pdb
+  2  	pdb.set_trace()
+  3  ->	a = int(0.1)
+  4  	b = 3.0
+  5  	c = a + b
+  6  	breakpoint()
+  7  	
+[EOF]
+(Pdb) w
+> c:\users\<name user>\appdata\roaming\jetbrains\pycharmce2022.2\scratches\visi scratches\scratch_14.py(3)<module>()
+-> a = int(0.1)
+(Pdb) h
+
+Documented commands (type help <topic>):
+========================================
+EOF    c          d        h         list      q        rv       undisplay
+a      cl         debug    help      ll        quit     s        unt      
+alias  clear      disable  ignore    longlist  r        source   until    
+args   commands   display  interact  n         restart  step     up       
+b      condition  down     j         next      return   tbreak   w        
+break  cont       enable   jump      p         retval   u        whatis   
+bt     continue   exit     l         pp        run      unalias  where    
+
+Miscellaneous help topics:
+==========================
+exec  pdb
+#Now you can apply different commands, e.g., print variables/expressions or execute the script line by line. The most useful commans are listed below. For a full list have a look at the official documentation here.
+
+#h (elp): Print the list of available commands
+#l (ist): List source code for the current file
+#w (here): Print a stack trace, with the most recent frame at the bottom
+#q (uit): Quit from the debugger
+#p expression: Evaluate the expression in the current context and print its value
+#n (ext): Continue execution until the next line in the current function is reached or it returns (The difference between next and step is that step stops inside a called function, while next executes called functions, only stopping at the next line in the current function)
+#s (tep): Execute the current line, stop at the first possible occasion (either in a function that is called or on the next line in the current function)
+#c (ontinue): Continue execution, only stop when a breakpoint is encountered
+3With these commands, we can step through the code, print expressions, and track down our bug
