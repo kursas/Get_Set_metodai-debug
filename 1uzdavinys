@@ -1,0 +1,31 @@
+# -*- coding: utf-8 -*-
+# Parašyti klasę "Namas", kuri turėtų savybę "plotas" ir "verte". Padaryti taip, kad savybė "verte" koreguojama tik
+# įvedus skaičių. Programoje naudoti dekoratorių @property.
+
+class Namas:
+    def __init__(self, plotas, verte):
+        self.plotas=plotas
+        self.__verte=verte
+
+    @property
+    def verte(self):
+        return self.__verte
+
+    @verte.setter
+    def verte(self, nauja_verte):
+        # if type(nauja_verte) is str:
+        if isinstance(nauja_verte, str):
+            print("Verte gali buti tik skaitine")
+        else:
+            self.__verte=nauja_verte
+
+
+namas=Namas(100, 290000)
+print(namas.verte)
+print(namas.plotas)
+
+#output
+290000
+100
+
+Process finished with exit code 0
